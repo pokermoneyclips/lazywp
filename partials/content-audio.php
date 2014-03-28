@@ -1,0 +1,1 @@
+<?php echo do_shortcode('[audio src="' . $post_guid . '" preload="metadata"]'); ?>

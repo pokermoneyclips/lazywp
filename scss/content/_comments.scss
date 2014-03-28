@@ -1,0 +1,82 @@
+﻿#comments {
+	clear: both;
+	margin: 1em 0 0;
+	@include min-width{
+		margin-left: 3em;
+	}
+	
+	h3 {
+		color: $colorpop;
+		font-size: 1.2em;
+		font-variant: small-caps;
+		letter-spacing: 2px;
+		margin-bottom: 1.2em;
+	}
+	
+}
+
+.req-text {
+	font-size: 0.8em;
+}
+
+.comment.depth-1 {
+	margin: 1.5em 1em 1.5em 0;
+	padding: 0.3em 1em 1em;
+	@extend %borders_rev;
+}
+
+// This is a reply to a comment
+.comment-reply {
+	margin: 1.5em 0 1.5em 1em;
+	padding: 0.3em 1em 1em;
+	
+	&.depth-even {
+		@extend %borders;
+	}
+	
+	&.depth-odd {
+		@extend %borders_rev;
+	}
+	
+}
+
+// Very hackish to get at the comment pending approval class
+.comments-area .commentlist .comment-pending-approval-bg {
+	background: $colorpop;
+	@extend %borders;
+	
+		.author {
+			color: $darkest;
+		}
+		
+		a.comment-reply-link {
+			@extend %borders_rev;
+		}
+}
+
+.comment-awaiting-moderation {
+	font-size: 0.7em;
+	letter-spacing: 1px;
+}
+
+.reply a.comment-reply-link {
+	font-size: 0.8em;
+	@extend %links;
+}
+
+#respond {
+	background: #BDC3C7;
+	margin: 1em 0;
+	padding: 1em;
+	@extend %borders;
+	@include min-width {
+		margin-right: 1em;
+	}
+}
+
+textarea {
+	width: 100%;
+	@include min-width {
+		width:50%;
+	}
+}

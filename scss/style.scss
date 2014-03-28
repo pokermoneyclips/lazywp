@@ -1,0 +1,57 @@
+@import 'variables/reset';
+@import 'variables/variables';
+@import 'variables/colors';
+@import 'variables/helpful';
+@import 'variables/extends';
+@import 'variables/rhythm';
+@import 'fonts/socicon.scss';
+@import 'grid/percentages';
+@import 'grid/callgrid';
+@import 'content/header';
+@import 'content/front';
+@import 'content/content';
+@import 'content/right';
+@import 'content/images';
+@import 'content/media';
+@import 'content/search';
+@import 'content/footer';
+@import 'content/forms';
+@import 'content/comments';
+@import 'slider/cards';
+
+body {
+	font-size: $font+0%;
+	font-family: sans-serif;
+	line-height: 1.5;
+	background: $lightest;
+	margin: 0;
+}
+
+p {
+	word-wrap: break-word;
+	margin-bottom: $font_em * 1.5 +0em;
+}
+
+a {
+	color: $colorpop;
+}
+
+img {
+	max-width: 100%;
+}
+
+blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+	margin-left: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+}
+
+h5 {
+	font-size: 1.1em;
+	font-variant: small-caps;
+	letter-spacing: 1px;
+	margin: 0.5em 0 0;
+}

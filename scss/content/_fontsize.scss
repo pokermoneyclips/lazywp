@@ -1,0 +1,25 @@
+﻿h1 {
+    @include font-size(32);
+}
+h2 {
+    @include font-size(24, large);
+}
+
+h3 {
+    @include font-size(22);
+}
+h4 {
+    @include font-size(20);
+}
+blockquote, h5, h6, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
+table {
+    @include font-size(16, medium);
+}
+small {
+    @include font-size(14);
+}
+
+h6 {
+    @include font-size(14);
+    margin-bottom: 0;
+}

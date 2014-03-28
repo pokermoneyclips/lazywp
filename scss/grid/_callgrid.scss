@@ -1,0 +1,16 @@
+// Mobile
+@include percent_mobile (3);
+@include percent_mobile (4);
+@include percent_mobile (6);
+@include percent_mobile (9);
+@include percent_mobile (12);
+
+// Regular
+@include min_width {
+	@include percent_combine(3, down) {float: left; };
+	@include percent_combine(4) { float:left; };
+	@include percent_combine(4, down) { float:left; };
+	@include percent_combine(6, down) {float:left; };
+	@include percent_combine(9) {float:left; };
+	@include percent_combine(12, down);
+}

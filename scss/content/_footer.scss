@@ -1,0 +1,41 @@
+﻿footer {
+	background: $darkest;
+	clear: both;
+	margin: 0.625em 0 0;
+	padding: 0.625em 0;
+}
+
+.foot_wrap {
+	max-width: $page_width_em + 0em;
+	margin: 0 auto;
+
+	& > div {
+		margin-bottom: 1.5em;
+	}
+	
+}
+
+.foot_box {
+	padding: 0.5em;
+	@extend %borders_rev;
+}
+
+@include min_width {
+	.foot_left {
+		//margin-left: -$gutter_em + 0em;
+
+	}
+
+	.foot_right {
+		//margin-right: -$gutter_em + 0em;
+	}
+}
+	
+.copy {
+	color: $lightest;
+	text-align: center;
+
+	a {
+		color: $lightest;
+	}	
+}

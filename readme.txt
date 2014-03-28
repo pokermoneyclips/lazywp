@@ -1,7 +1,6 @@
-Lazy Grid WP Edition
-======
+﻿Lazy Grid WP Edition
 
-Useful Plugin Additions
+Useful Additions
 Pods, the greatest thing since sliced bread in my opinion, should be added to your site immediately! I'll be adding a lot of Pods support in the immediate future.
 http://pods.io/ 
 
@@ -13,7 +12,6 @@ http://wordpress.org/plugins/manual-image-crop/
 
 
 Getting Started
-======
 I've added a settings page for Lazy Grid to allow you to start customizing some of the options. More options will come available as I get feedback and what's wanted.
 The settings page itself is available in your admin section under "Lazy Grid Settings"
 Front Page settings allow you to choose between a slider, a single image with text, or no header section
@@ -22,7 +20,6 @@ If your "Reading" Settings are set to recent posts, or you specify a home page f
 You can also choose the image sizes for posts and "short" display
 
 About
-======
 This has been built on a fluid 960 grid. As you shrink your window your content will stack on top of itself for smaller displays. Your top menu will also convert to a moblie friendly menu.
 
 404 page includes search box
@@ -41,12 +38,10 @@ The optional right sidebar will display on your custom recent posts page, every 
 
 
 Adding Stuff
-======
 I separated out the menus, widgets, and image sizes into a separate php file for anyone who would like to start adding more. You can find them in the "functions" folder - menusnwidgets.php
 
 
 Gotchas
-======
 I overrode some default html stuff like adding classes around embedded videos, changing the html of images when inserted into posts, etc. You can turn all that off if you'd like by commenting out the line include (TEMPLATEPATH . '/functions/htmlmods.php'); in functions.php 
 Or remove what you don't want from the "functions" folder htmlmods.php
 
@@ -60,7 +55,6 @@ If you want to dump the social media icons comment out include (locate_template(
 
 
 TO DO (last updated 3/27/14)
-======
 Don't have header be fixed so you can include more menu items (maybe)
 Add option to include / exclude pages from Front Page Options if pages option is selected
 Make sure the options return sanitized values

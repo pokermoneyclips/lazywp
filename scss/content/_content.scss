@@ -1,0 +1,208 @@
+﻿ul {
+	li {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+}
+
+#container {
+	clear: both;
+	margin-top: $header_height +0em; // set to height of header
+	overflow: hidden;
+}
+
+.body_wrap {
+	background: $lightest;
+	border-left: 1px solid $lightaccent;
+	border-right: 1px solid $lightaccent;
+	max-width: $page_width_em + 0em;
+	margin:0 auto;
+	overflow: hidden;
+	padding: 1em 0.625em;
+	@include min_width {
+		padding: 1em 0 0;
+	}
+	@include shadows(-8px 0 8px -8px $lightaccent, 8px 0 8px -8px $lightaccent);
+
+	h1 {
+		color: $colorpop;
+		font-size: 2em;
+		letter-spacing: 2px;
+		margin-bottom: 0.25em;
+	}
+
+}
+
+.content_wrap {
+	margin: 0 0.625em;
+	overflow: hidden;
+	padding: 0 0 1em;
+}
+
+.front-sub-header {
+	margin-bottom: 0.5em;
+	padding-left: $gutter_em + 0em;
+	
+		h2 {
+			color: $darkaccent;
+			font-size: 1.75em;
+			font-variant: small-caps;
+			letter-spacing: 2px;
+			margin: 0;
+		}
+}
+
+.welcome_statement {
+	margin: 0 0 0.5em;
+	padding: 0 $gutter_em +0em 0.5em; // Adding $gutter_em to match grid class style calls
+}
+
+.the_content {
+	border-bottom: 1px solid $lightaccent;
+	margin: 0 0 1em;	
+	padding: 0 0 1.5em;
+	@extend %bottom_shadow;
+}
+
+// didnt realize there was an author class already
+// need to fix
+body.author {
+	color: $darkest;
+	font-size: 1em;
+	font-style: normal;
+}
+
+.author {
+	color: $lightaccent;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+// SNIPPET SECTION
+.snippet {
+	margin: 0 0 2em;
+	@include shadows(-8px 0 8px -8px $lightaccent);
+	
+	h4 {
+		@extend %small_headings;
+	}
+}
+
+.snippet:nth-child(3n+4) {
+	clear: left;
+}
+
+.body_wrap, .foot_wrap, .copy, .info {
+	clear: both;
+}
+
+.readmore {
+	clear: both;
+	@extend %links;
+
+	&:visited {
+		@extend %visited;
+	}
+}
+
+.navigation-wrapper {
+	clear: both;
+	margin: 1.5em 0 0;
+
+	.navigation-previous-post, .navigation-next-post {
+		display: block;
+		margin: 1.5em 0;
+		
+		& a {
+			color: $darkest;
+			font-size: 1.125em;
+			font-weight: bold;
+			letter-spacing: 1px;
+			@extend %links;
+				
+			&:visited {
+				color: lightest;
+				@extend %visited;
+			}
+		}	
+	}
+	
+	@include media-width($small_max) {
+		.navigation-previous-post {
+			display: block;
+			float: right;
+		}
+		.navigation-next-post {
+			display: block;
+			float: left;
+		}
+	}
+		
+	&:after {
+		clear: both;
+		content: '';
+		display: block;		
+	}
+}
+
+.home-custom, .snippet_wrap {
+	clear: both;
+	overflow: hidden;
+}
+
+.home-left, .home-right {
+	margin: 0 0 2em;
+	@extend %left_shadow;
+	
+		h5 {
+			margin-top: 0;
+			@extend %small_headings;
+		}
+}
+
+.posts-short {
+	margin: 0 0 2em;
+	padding: 0 0 0.25em;
+	@extend %bottom_shadow;
+}
+
+
+.social-share-title {
+	font-size: 1.5em;
+	font-variant: small-caps;
+	font-weight: bold;
+	margin: 1em 0 0.5em;
+}
+
+.social-share {
+    font-family: 'socicon' !important;
+	font-size: 1.75em;
+	@include min_width {
+		font-size: 2.5em;
+	}
+	
+	a {
+		background: $colorpop;
+		color: $darkest;
+		display: inline-block;
+		margin-right: 0.5em;
+		padding: 0.25em;
+		text-decoration: none;
+		@include rounded(5px 40px 40px);
+		
+		@include min_width {
+			&:hover {
+					background: $colorpophover;
+					color: $lightest;
+			}
+		}
+	}
+}
+
+.comment-nav {
+	padding: 0 $gutter_em + 0em;
+}
+
+.assistive-text {
+		font-size: 0;
+}

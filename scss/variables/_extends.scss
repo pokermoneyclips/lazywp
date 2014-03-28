@@ -1,0 +1,72 @@
+﻿// Full borders
+%borders {
+	border:1px solid $darkest;
+	@include shadows(0px 0px 3px 1px $darkest);
+}
+
+%borders_rev {
+	background: $lightest;
+	border:1px solid $lightish;
+	@include shadows(0px 0px 3px 3px $lightish);
+}
+
+%borders_form {
+	background: $lightest;
+	border:1px solid $darkaccent;
+	@include shadows(0px 0px 3px 3px $darkaccent);
+}
+
+// Specific Border Shadows
+%bottom_shadow {
+	@include shadows(0 8px 8px -8px $lightaccent)
+}
+
+%left_shadow {
+	@include shadows(-8px 0 8px -8px $lightaccent)
+}
+
+// Links
+%links {
+	background: $colorpop;
+	color: $darkest;
+	padding: 0.5em;
+	text-decoration: none;
+	@extend %borders;
+}
+
+%visited {
+	background: $darkest;
+	color: $lightest;
+	@extend %borders_rev;
+}
+
+// Headings
+%small_headings {
+	background: $lightaccent;
+	color: $lightest;
+	font-variant: small-caps;
+	letter-spacing: 2px;
+	margin-bottom: 0.5em;
+	margin-left: -0.625em; // forces title to shadow
+	padding: 0.3em 0.625em;
+}
+
+
+// Media Queries
+@mixin min_width {
+	@media screen and (min-width:721px) {
+		@content; 
+	}
+}
+
+@mixin media_width($width) {
+	@media screen and (min-width: $width + 0px) {
+		@content;
+	}
+}
+
+@mixin max_width {
+	@media screen and (max-width:720px) {
+		@content; 
+	}
+}

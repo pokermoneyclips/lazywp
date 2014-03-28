@@ -1,0 +1,1 @@
+﻿<?php echo do_shortcode('[video src="' . $post_guid . '" preload="metadata"]'); ?>

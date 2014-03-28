@@ -1,0 +1,22 @@
+﻿.search-result {
+	margin: 0 0 1.25em;
+	padding: 0 0 0.5em;
+	@include shadows(0 8px 8px -8px $lightaccent);
+	
+	&:first-of-type {
+		margin: 1.25em 0;
+		padding: 0.5em 0;
+		@include shadows(0 -8px 8px -8px $lightaccent, 0 8px 8px -8px $lightaccent);
+	}
+	
+	h1 {
+		color: $colorpop;
+		font-size: 1.3em;
+		letter-spacing: 1px;
+		margin-bottom: 0.25em;
+	}
+}
+
+.search-result-text {
+			color: $darkest;
+}

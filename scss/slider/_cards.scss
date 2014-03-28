@@ -1,0 +1,161 @@
+﻿// help from http://blogs.sitepointstatic.com/examples/tech/css3-transformations/backface2.html
+
+// Mixin for Percentage Widths
+// $combine_span is the number of grid items you'd like to conjoin together
+@mixin percent_width ($grid, $combine_span, $upordown: up) {
+	$grid_width_percent: ((100 / $grid) * $combine_span); //math for grid width
+	@if ($upordown == up) {
+		width: ceil($grid_width_percent) +0%;
+	}
+	@else {
+		width: floor($grid_width_percent) +0%;		
+	}				
+}
+
+
+// full wrapper
+.slider-wrap {
+	background: $darkaccent;
+	overflow: hidden; // I use overflow hidden to contain things	
+	padding: 1em 0 0;
+}
+
+// the wrapper around all the cards
+.table {
+	position:relative;
+}
+
+// secondary card wrapper
+.card-wrap {
+}
+
+// styling for all cards
+.card {
+	display: block;
+	float: left;
+}
+
+// Grid Widths
+.card.grid-2 {
+@include percent_width (1, 1, down);
+}
+
+.card.grid-3 {
+@include percent_width (2, 1, down);
+}
+
+.card.grid-4 {
+	@include percent_width (3, 1, down);
+}
+
+.previous .back {
+	background: $darkest;
+	border:1px solid $lightest;
+	color: $lightest;
+	@include shadows(0px 0px 1px 1px $lightest);
+}
+
+// stylings for the front and back of cards
+.card div {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	@extend %borders;
+}
+
+
+// Thumbnail image
+.thumbnail-image {
+	display: block;
+	float: left;
+	padding-right: 1em;
+	
+	img {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+// styling for back card (top)
+.back {
+	background: $colorpop;
+	margin-bottom: -8.25em; // this combined with the massive amount of padding creates equal height elements
+	min-height: 3em;
+	padding: 0 0.625em 9em;
+	@include transitions(all 3s ease);
+	@include transforms(perspective(1000px) rotateX(0deg));
+	
+	@include min_width {
+		&:hover {
+			background: $colorpophover;
+			color: $lightest;
+			cursor: pointer;
+		}
+	}
+	
+	& h4 {
+		padding: 0 0.5em;
+	}
+	
+}
+
+// first mouseover event to flip back of card
+.card.active .back {
+	left: 10%;
+	position: absolute;
+	top: 0.25em;
+	width: 80%;
+	@include transforms(perspective(1000px) rotateX(180deg) skew(20deg));
+}
+
+// styling for front of card (shown on hover)
+.front {
+	background: $lightest;
+	font-size: 1em;
+	margin-bottom: 1.5em;
+	opacity: 0;
+	overflow: hidden; // floating the image so need to contain it
+	width: 100 * 2.4 + 0%;
+	@include transforms(perspective(1000px) rotateX(-179.9deg));
+	@include transitions(opacity 1s ease);
+	
+	// vendor prefix transitions to transforms as Chrome was being uncooperative
+	$prefix: -webkit- -moz- -ms- -o-;
+	@each $item in $prefix {
+		#{$item}transition: #{$item}transform 2s ease;
+	}
+	transition: transform 2s ease; // empty was not on the list so adding again
+
+	
+	& span {
+		display: block;
+		padding: 0.625em;
+	
+		h4 {
+		color: $colorpop;
+		font-size: 1.3em;
+		letter-spacing: 2px;
+		}
+	
+	}
+
+	& .thumbnail-image {
+		display: none;
+	
+		@include media_width(600) {
+			display: block;
+			height: 100%;
+		}
+	}
+}
+
+// mouseover event for front of card
+.card.active .front {
+	left: 10%;
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	width: 80%;
+	z-index: 50;
+	@include transforms(perspective(1000px) rotateX(0deg));	
+}

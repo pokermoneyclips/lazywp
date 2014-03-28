@@ -1,0 +1,48 @@
+﻿// Images
+.snippet-image {
+	background: $darkaccent;
+	display: block;
+	margin: -0.5em 0 0.5em -0.625em; // mirroring the h4 margin on the left and removing top margin if image is present
+	
+	
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.the_content {
+	.image-wrapper {
+		background: $darkaccent;
+		display: block;
+		margin: 0 1em 1em 0;
+		padding: 0.5em;
+		
+			img {
+				display: block;
+				margin: 0 auto;
+			}
+		
+		@include media_width($tiny_max) {
+			float: left;
+		}
+	}
+}
+	
+.image-caption {
+	display: block;
+	font-variant: small-caps;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+figure.nowrap {
+	display: inline-block;
+	float: none !important;
+}
+
+figure.forceright {
+	float: right !important;
+	margin-left: 1em !important;
+}

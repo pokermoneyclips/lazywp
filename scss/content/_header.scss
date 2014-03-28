@@ -1,0 +1,62 @@
+﻿.customize-support #header {
+	margin-top: $wordpress_admin_convert + 0em;
+	
+	@media screen and (min-width: 783px) {
+		margin-top: $wordpress_admin_convert_full + 0em;
+	}
+	
+	@media screen and (max-width: 600px) {
+		position: absolute;
+	}
+}
+
+#header {
+	background: $darkest;
+	color: $lightest;
+	height: $header_height +0em;
+	padding: 0 1em;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 5000;
+	@include shadows(0 2px 2px 2px $lightaccent);
+
+	a {
+		color: $lightest;
+	}
+	
+	h1, h2 {
+		float: left;
+		font-size: 1.5em;
+	}
+}	
+
+.head-menu {
+	float:right;
+			
+	select {
+		margin-top: 0.5em;
+	}
+	
+	ul {
+		display:none;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		
+			li {
+				display: inline-block;
+				padding: 0.5em;
+			}
+	}
+
+	@include min_width {
+		select {
+			display:none;
+		}
+		ul {
+			display:block;
+		}
+	}
+	
+}

@@ -1,0 +1,31 @@
+﻿.right_side {
+
+	h5 {
+		background: $lightish;
+		font-weight: bold;
+		margin: -0.5em -0.5em 0.5em;
+		padding: 0.4em 0.8em;
+	}
+
+	& > div {
+	
+		margin-bottom: 1em;
+		padding: 0.5em;
+		@extend %borders_rev;
+
+		@include min-width {
+			font-size: 0.8em;
+		}
+		
+		h6 {
+			color: $colorpop;
+			font-size: 1.3em;
+			font-variant: small-caps;
+			font-weight: bold;
+		}
+		
+		.readmore {
+			margin-left: 0.2em; // shadow was being cut off on left hand side
+		}
+	}
+}
