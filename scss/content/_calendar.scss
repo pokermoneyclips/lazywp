@@ -30,7 +30,8 @@
 	background: $lightish; 
 	border: 1px solid $lightest; 
 	color: $darkest;
-	padding: 1em;
+	display: table-cell;
+	padding: 1em 0;
 	text-align: center; 
 }
 
@@ -48,12 +49,12 @@
 	padding-top: 0.5em;
 	text-align: right; 
 	text-transform: uppercase; 
-	@extend %textlink;
+	@extend %linktext;
 }
 
 #wp-calendar tfoot #prev { 
 	font-size: 1em; 
 	padding-top: 0.5em;
 	text-transform: uppercase; 
-	@extend %textlink;
+	@extend %linktext;
 }

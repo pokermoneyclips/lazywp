@@ -92,7 +92,7 @@ input, textarea {
   background: black;
   color: white; }
 
-input[type=submit], a {
+input[type=submit], #wp-calendar tfoot #next, #wp-calendar tfoot #prev, a {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   letter-spacing: 1px; }
 
@@ -664,7 +664,8 @@ textarea {
   background: #ecf0f1;
   border: 1px solid white;
   color: black;
-  padding: 1em;
+  display: table-cell;
+  padding: 1em 0;
   text-align: center; }
 
 #wp-calendar tbody td a {
