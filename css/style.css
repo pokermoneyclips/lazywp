@@ -92,6 +92,10 @@ input, textarea {
   background: black;
   color: white; }
 
+input[type=submit], a {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  letter-spacing: 1px; }
+
 .snippet h4, .home-left h5, .home-right h5 {
   background: #bdc3c7;
   color: white;
@@ -102,9 +106,23 @@ input, textarea {
   padding: 0.3em 0.625em; }
 
 @font-face {
+  font-family: 'latin_modern_roman_dunhil10Rg';
+  src: url("fonts/latinmodernromandunhill/lmromandunh10-regular-webfont.eot");
+  src: url("fonts/latinmodernromandunhill/lmromandunh10-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/latinmodernromandunhill/lmromandunh10-regular-webfont.woff") format("woff"), url("fonts/latinmodernromandunhill/lmromandunh10-regular-webfont.ttf") format("truetype"), url("fonts/latinmodernromandunhill/lmromandunh10-regular-webfont.svg#latin_modern_roman_dunhil10Rg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: 'socicon';
-  src: url("fonts/socicon-webfont.eot");
-  src: url("fonts/socicon-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/socicon-webfont.woff") format("woff"), url("fonts/socicon-webfont.ttf") format("truetype"), url("fonts/socicon-webfont.svg#sociconregular") format("svg");
+  src: url("fonts/socicon/socicon-webfont.eot");
+  src: url("fonts/socicon/socicon-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/socicon/socicon-webfont.woff") format("woff"), url("fonts/socicon/socicon-webfont.ttf") format("truetype"), url("fonts/socicon/socicon-webfont.svg#sociconregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'permanent_markerregular';
+  src: url("fonts/permanentmarker/PermanentMarker-webfont.eot");
+  src: url("fonts/permanentmarker/PermanentMarker-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/permanentmarker/PermanentMarker-webfont.woff") format("woff"), url("fonts/permanentmarker/PermanentMarker-webfont.ttf") format("truetype"), url("fonts/permanentmarker/PermanentMarker-webfont.svg#permanent_markerregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -377,7 +395,6 @@ body.author {
   margin: 1em 0 0.5em; }
 
 .social-share {
-  font-family: 'socicon' !important;
   font-size: 1.75em; }
   @media screen and (min-width: 721px) {
     .social-share {
@@ -386,6 +403,7 @@ body.author {
     background: #e74c3c;
     color: black;
     display: inline-block;
+    font-family: 'socicon' !important;
     margin-right: 0.5em;
     padding: 0.25em;
     text-decoration: none;
@@ -561,7 +579,6 @@ input, textarea {
 input[type=submit] {
   background: #e74c3c;
   cursor: pointer;
-  letter-spacing: 2px;
   padding: 0.3em; }
 
 #searchform label {
@@ -751,14 +768,14 @@ textarea {
 
 body {
   font-size: 100%;
-  font-family: sans-serif;
+  font-family: Tahoma, Geneva, sans-serif;
   line-height: 1.5;
   background: white;
   margin: 0; }
 
 p {
-  word-wrap: break-word;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  word-wrap: break-word; }
 
 a {
   color: #e74c3c; }
@@ -770,6 +787,11 @@ blockquote {
   font-size: 1.1em;
   font-style: italic;
   margin-left: 1.5em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'latin_modern_roman_dunhil10Rg', Times, serif; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-family: 'latin_modern_roman_dunhil10Rg', Times, serif; }
 
 h5 {
   font-size: 1.1em;

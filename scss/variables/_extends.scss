@@ -40,6 +40,11 @@
 	@extend %borders_rev;
 }
 
+%linktext {
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	letter-spacing: 1px;
+}
+
 // Headings
 %small_headings {
 	background: $lightaccent;

@@ -20,9 +20,9 @@ input, textarea {
 input[type=submit] {
 	background: $colorpop;
 	cursor: pointer;
-	letter-spacing: 2px;
 	padding: 0.3em;
 	@extend %borders;
+	@extend %linktext;
 }
 
 #searchform {

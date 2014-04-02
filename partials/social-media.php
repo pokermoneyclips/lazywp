@@ -1,4 +1,4 @@
-<div class="social-share-title">Share on social media</div>
+<div class="social-share-title"><h4>Share on social media</h4></div>
 <div class="social-share"><!-- 
 share on Facebook 
 	--><a rel="nofollow" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php echo urlencode(get_the_title($id)); ?>" title="Share this post on Facebook">b</a><!--  

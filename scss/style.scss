@@ -4,7 +4,9 @@
 @import 'variables/helpful';
 @import 'variables/extends';
 @import 'variables/rhythm';
+@import 'fonts/latinmodern.scss';
 @import 'fonts/socicon.scss';
+@import 'fonts/marker.scss';
 @import 'grid/percentages';
 @import 'grid/callgrid';
 @import 'content/header';
@@ -21,19 +23,20 @@
 
 body {
 	font-size: $font+0%;
-	font-family: sans-serif;
+	font-family:  Tahoma, Geneva, sans-serif;
 	line-height: 1.5;
 	background: $lightest;
 	margin: 0;
 }
 
 p {
-	word-wrap: break-word;
 	margin-bottom: $font_em * 1.5 +0em;
+	word-wrap: break-word;
 }
 
 a {
 	color: $colorpop;
+	@extend %linktext;
 }
 
 img {
@@ -47,6 +50,13 @@ blockquote {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	//font-family: 'permanent_markerregular', Times, serif;
+	font-family: 'latin_modern_roman_dunhil10Rg', Times, serif;
+	
+		a {
+			//font-family: 'permanent_markerregular', Times, serif;
+			font-family: 'latin_modern_roman_dunhil10Rg', Times, serif;		
+		}
 }
 
 h5 {
