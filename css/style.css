@@ -641,6 +641,49 @@ textarea {
     textarea {
       width: 50%; } }
 
+/* calendar widget */
+#wp-calendar {
+  width: 100%; }
+
+#wp-calendar caption {
+  color: #e74c3c;
+  font-size: 1em;
+  margin: 1em 0;
+  text-align: right; }
+
+#wp-calendar thead {
+  font-size: 0.8em; }
+
+#wp-calendar thead th {
+  padding-bottom: 1em; }
+
+#wp-calendar tbody {
+  color: white; }
+
+#wp-calendar tbody td {
+  background: #ecf0f1;
+  border: 1px solid white;
+  color: black;
+  padding: 1em;
+  text-align: center; }
+
+#wp-calendar tbody td a {
+  font-size: 1.2em; }
+
+#wp-calendar tbody .pad {
+  background: none; }
+
+#wp-calendar tfoot #next {
+  font-size: 1em;
+  padding-top: 0.5em;
+  text-align: right;
+  text-transform: uppercase; }
+
+#wp-calendar tfoot #prev {
+  font-size: 1em;
+  padding-top: 0.5em;
+  text-transform: uppercase; }
+
 .slider-wrap {
   background: #95a5a6;
   overflow: hidden;
