@@ -45,6 +45,12 @@ $("#lazy_grid_header").change(function(){
 	if(value !== "single") {
 		singleTable.removeClass("show-single-image-options").addClass("hide-single-image-options");	
 	}
+	if(value === "slider") {
+		sliderTable.removeClass("hide-single-image-options").addClass("show-single-image-options");
+	}
+	if(value !== "slider") {
+		sliderTable.removeClass("show-single-image-options").addClass("hide-single-image-options");	
+	}
 });
 
 $("#lazy_grid_recent_type").change(function(){   
