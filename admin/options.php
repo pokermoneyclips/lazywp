@@ -16,8 +16,7 @@ $site_types = get_post_types($site_type_args);
 	<form method="post" action="options.php">
 		<?php settings_fields( 'lazygrid-settings-group' ); ?>
 		<?php do_settings_sections( 'lazygrid-settings-group' ); ?>
-		
-		
+				
 		<h2>Image Sizes</h2>
 		<table class="form-table">
 			<tr valign="top">
@@ -50,10 +49,6 @@ $site_types = get_post_types($site_type_args);
 				</td>
 			</tr>
 		</table>
-
-		
-		
-		
 		
 		<h2>Front Page</h2>
 		<table class="form-table">
@@ -64,7 +59,7 @@ $site_types = get_post_types($site_type_args);
 						'' => '-- Select One --',
 						'slider' => 'Slider',
 						'single' => 'Single Image',
-						'none' => 'None'
+						'' => 'None'
 						); ?>
 					<select name="lazy_grid_header" id="lazy_grid_header">
 						<?php foreach( $front_head_type as $var => $front_head ): ?>
@@ -78,6 +73,7 @@ $site_types = get_post_types($site_type_args);
 				</td>
 			</tr>
 		</table>
+
 		<?php 
 		if (get_option('lazy_grid_header') == 'single') {
 			$single_image_class = "show-single-image-options";
@@ -180,20 +176,16 @@ $site_types = get_post_types($site_type_args);
 				</td>
 			</tr>										
 		</table>
+		
 		<table class="form-table">
 			<tr valign="top">
 				<th colspan="2"><h3>Recent Posts</h3></th>
-			</tr>
-			
+			</tr>			
 			<tr valign="top">
 				<th scope="row">Type of Post</th>
 				<td>
 					<select name="lazy_grid_recent_type" id="lazy_grid_recent_type">
 						<option value="">--Select One--</option>
-						<option value="none" 
-							<?php if( "none" == get_option('lazy_grid_recent_type') ): ?> 
-								selected="selected"<?php endif; ?>
-						>None</option>
 						<?php
 							foreach ($site_types as $site_type) : ?>							
 							<option value="<?php echo $site_type; ?>"
@@ -202,6 +194,7 @@ $site_types = get_post_types($site_type_args);
 								<?php echo ucfirst($site_type); ?>
 							</option>
 						<?php endforeach; ?>
+						<option value="">None</option>
 					</select>
 				</td>
 			</tr>
@@ -222,8 +215,7 @@ $site_types = get_post_types($site_type_args);
 				</td>
 			</tr>
 		</table>	
-			
-			
+						
 		<table class="form-table header-options front-post-category <?php echo $post_category_class; ?>">	
 			<tr valign="top">
 				<th colspan="2">Post Categories</th>
@@ -232,8 +224,7 @@ $site_types = get_post_types($site_type_args);
 				<th scope="row">If none checked, all categories will be shown
 				</th>
 				<td>
-					<?php
-						
+					<?php						
 						foreach ($site_categories as $site_category) : ?>							
 							<input type="checkbox" name="lazy_grid_recent_posts[]" value="<?php echo $site_category->term_id ?>"
 								<?php 
@@ -245,6 +236,38 @@ $site_types = get_post_types($site_type_args);
 						
 				</td>
 			</tr>
+			
+			<?php if( is_plugin_active('pods/init.php') && post_type_exists( 'ads' )) : ?>
+			<tr valign="top">
+				<th colspan="2">Include Ads?</th>
+			</tr>
+			<tr valign="top">
+				<th scope="row">Choose the ad you would like to display</th>
+				<td>
+					 <?php
+          $ads = new Pod('ads');
+          $ads->findRecords('name ASC');       
+          $total_ads = $ads->getTotalRows();
+        ?>
+        <select name="lazy_grid_show_ad" id="lazy_grid_show_ad">
+			<option value="">--Select One--</option>
+			<?php if( $total_ads > 0 ) : ?>
+				<?php while ( $ads->fetchRecord() ) : ?>            
+					<?php
+						$ad_title = $ads->get_field('title'); // get the title of the posts
+						$ad_id = $ads->get_field('ID'); // get the post ID case sensitive
+					?>
+					<option value="<?php echo ($ad_id); ?>" <?php if ($ad_id == get_option('lazy_grid_show_ad')) : ?> selected="selected"<?php endif; ?>> 				
+						<?php echo $ad_title; ?> 
+					</option>            
+				<?php endwhile ?>
+			<?php endif ?>
+				<option value="">None</option>
+		</select>
+				</td>
+			</tr>
+			<?php endif; ?>
+			
 		</table>
 		<h2>Post Settings</h2>
 		<table class="form-table">
@@ -280,10 +303,8 @@ $site_types = get_post_types($site_type_args);
 					</select>
 				</td>
 			</tr>
-
 		</table>
-		
-		
+				
 		<?php submit_button(); ?>
 	</form>
 </div>

@@ -12,15 +12,18 @@
 				/* http://stackoverflow.com/questions/18773912/php-include-html-adds-white-spaces
 				 * Encode in UTF-8 without BOM for Chrome Compatibiilty
 				*/
+				$posttype = 'post';
+				$postperpage = 9;
 				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 				$category = get_category( get_query_var( 'cat' ) );
 				$cat_id = $category->cat_ID;
 				$args = array(
-				'posts_per_page' => 9,
+				'posts_per_page' => $postperpage, // this overrides the reading settings value
 				'paged' => $paged,
-				'cat' => $cat_id
+				'cat' => $cat_id,
+				'post_type' => $posttype
 				);
-
+				
 				$short = new WP_Query( $args );          
 
 				$mycount = 0; // this is for counting the loop
@@ -33,7 +36,10 @@
 					</div>
 					<?php // because these are descending the next_posts_link is actually older posts ?>
 						<div class="navigation-wrapper">
-							<span class="navigation-next-post"><?php next_posts_link('&laquo; Older Entries') ?></span>
+							<?php 
+							if ( $short->max_num_pages > 1 ) : // ensures reading setting value is overwritten ?>
+								<span class="navigation-next-post"><?php next_posts_link('&laquo; Older Entries') ?></span>
+							<?php endif; ?>
 							<span class="navigation-previous-post"><?php previous_posts_link('Newer Entries &raquo;') ?></span>
 						</div>
 				<?php endif;  wp_reset_postdata(); ?>

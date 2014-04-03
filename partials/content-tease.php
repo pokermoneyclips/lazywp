@@ -1,17 +1,14 @@
 <div class="snippet gridspan_12_span4_<?php 
-	// reset the count every 3 loops
-	if ($mycount == 2) {
-		$mycount = -1;
-	}
 	$mycount++; // increase count
 
+	$countarray = range(2, 20, 3);
 	// if its even we want to use the down grid
-	if($mycount == 0 || $mycount == 2) { 
-		echo 'down'; 
+	if(in_array($mycount, $countarray)) { 
+		echo 'up'; 
 	}
 	// else we go up so the math == 100%
-	elseif($mycount == 1) { 
-		echo 'up';
+	else { 
+		echo 'down';
 	} ?>"> <?php // written as div class="snippet gridspan_12_span4_up OR gridspan_12_span4_down" ?>
 	<h4><?php the_title(); ?></h4>
 	<?php if ( has_post_thumbnail() ) : ?>

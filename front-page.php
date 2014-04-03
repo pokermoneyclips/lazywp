@@ -4,33 +4,33 @@
 <?php // This is the slider section 
 //codex.wordpress.org/Class_Reference/WP_Query
 if ($slidetype == 'slider') : ?>
-<div class="slider-wrap">
-	<div class="table">
-		<div class="card-wrap">	
-			<?php 
-				$slideargs = array(
-					'cat' => $slidecat,
-					'posts_per_page' => 4
-				);
-				$lazy_slide = new WP_Query( $slideargs );          
-
-				$mycount = 0; // this is for counting the loop
-				$slide_post_ids = array();
-				if ( have_posts() ) : while ( $lazy_slide->have_posts() ) : $lazy_slide->the_post(); ?>
-					
-					<?php include(locate_template( '/partials/content-slider.php' )); // Grab the slider  ?>
-				
+	<div class="slider-wrap">
+		<div class="table">
+			<div class="card-wrap">	
 				<?php 
-				$slide_post_ids[] = get_the_ID(); // Grab the post IDs to use down the line so we dont repeat content
-				endwhile; endif; wp_reset_postdata(); ?>
+					$slideargs = array(
+						'cat' => $slidecat,
+						'posts_per_page' => 4
+					);
+					$lazy_slide = new WP_Query( $slideargs );          
+
+					$mycount = 0; // this is for counting the loop
+					$slide_post_ids = array();
+					if ( have_posts() ) : while ( $lazy_slide->have_posts() ) : $lazy_slide->the_post(); ?>
+						
+						<?php include(locate_template( '/partials/content-slider.php' )); // Grab the slider  ?>
+					
+					<?php 
+					$slide_post_ids[] = get_the_ID(); // Grab the post IDs to use down the line so we dont repeat content
+					endwhile; endif; wp_reset_postdata(); ?>
+			</div>
 		</div>
 	</div>
-</div>
 <?php elseif($slidetype == 'single') : ?>
-<div class="front-giant-banner"> 
-	<div class="front-giant-banner-bg"><img src="<?php echo $slidebg; ?>" /></div>
-	<div class="front-giant-banner-text <?php echo $slidetextpos; ?>"><?php echo $slidetext; ?></div>
-</div>
+	<div class="front-giant-banner"> 
+		<div class="front-giant-banner-bg"><img src="<?php echo $slidebg; ?>" /></div>
+		<div class="front-giant-banner-text <?php echo $slidetextpos; ?>"><?php echo $slidetext; ?></div>
+	</div>
 <?php endif; ?>
 
 <?php // This is the content from the page ?>
@@ -59,6 +59,10 @@ if ($slidetype == 'slider') : ?>
 	'post_type' => $fronttype
 	);
 
+	if (!empty($frontad) && $frontad != "") {
+		$recentargs[posts_per_page] = 5;
+	}
+	
 	if ($fronttype == "post") {
 		$recentargs[category__in] = $frontrecent;
 		$recentargs[post__not_in] = $slide_post_ids;
@@ -82,7 +86,12 @@ if ($slidetype == 'slider') : ?>
 		<?php while ( $short->have_posts() ) : $short->the_post(); ?>
 			<?php 
 			if ($fronttype != "attachment") {
+				if ($mycount == 1 && !empty($frontad) && $frontad != "") {
+					include(locate_template( '/pods/content-tease-ads.php' ));
+					$mycount = 2;
+				}
 				include(locate_template( '/partials/content-tease.php' ));
+
 			}
 			else {	
 				include(locate_template( '/partials/content-tease-media.php' ));					
