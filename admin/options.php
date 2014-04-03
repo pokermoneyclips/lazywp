@@ -257,7 +257,7 @@ $site_types = get_post_types($site_type_args);
 						$ad_title = $ads->get_field('title'); // get the title of the posts
 						$ad_id = $ads->get_field('ID'); // get the post ID case sensitive
 					?>
-					<option value="<?php echo ($ad_id); ?>" <?php if ($ad_id == get_option('lazy_grid_show_ad')) : ?> selected="selected"<?php endif; ?>> 				
+					<option value="<?php echo $ad_id; ?>" <?php if ($ad_id == get_option('lazy_grid_show_ad')) : ?> selected="selected"<?php endif; ?>> 				
 						<?php echo $ad_title; ?> 
 					</option>            
 				<?php endwhile ?>
