@@ -93,6 +93,12 @@ $site_types = get_post_types($site_type_args);
 		else {
 			$post_category_class = "hide-single-image-options";
 		}
+		if (get_option('lazy_grid_recent_type') == 'page') {
+			$page_category_class = "show-single-image-options";
+		}
+		else {
+			$page_category_class = "hide-single-image-options";
+		}
 		?>
 			
 		<table class="header-options slider-image form-table <?php echo $slider_class; ?>">
@@ -269,6 +275,44 @@ $site_types = get_post_types($site_type_args);
 			<?php endif; ?>
 			
 		</table>
+		
+		<table class="form-table header-options front-page-category <?php echo $page_category_class; ?>">
+			<tr valign="top">
+				<th colspan="2">Page Options</th>
+			</tr>
+			<tr valign="top">
+				<th scope="row">Select Pages To Show On Front<br />
+				Please Choose in groups of 3 up to 6</th>
+				<td>
+					<?php $args = array(
+						'sort_order' => 'ASC',
+						'sort_column' => 'post_title',
+						'hierarchical' => 1,
+						'exclude' => '',
+						'include' => '',
+						'meta_key' => '',
+						'meta_value' => '',
+						'authors' => '',
+						'child_of' => 0,
+						'parent' => -1,
+						'exclude_tree' => '',
+						'number' => '',
+						'offset' => 0,
+						'post_type' => 'page',
+						'post_status' => 'publish'
+						); 
+						$pages = get_pages($args); 
+						foreach($pages as $page) : ?>
+						<input type="checkbox" name="lazy_grid_recent_pages[]" value="<?php echo $page->ID; ?>"
+						<?php 
+							if((get_option('lazy_grid_recent_pages')) != "" && in_array($page->ID, get_option('lazy_grid_recent_pages') )): ?> 
+									checked<?php endif; ?>>						
+							<?php echo $page->post_title; ?><br />						
+					<?php endforeach; ?>
+				</td>
+			</tr>
+		</table>
+		
 		<h2>Post Settings</h2>
 		<table class="form-table">
 			<tr>

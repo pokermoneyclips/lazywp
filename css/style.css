@@ -92,7 +92,7 @@ input, textarea {
   background: black;
   color: white; }
 
-input[type=submit], #wp-calendar tfoot #next, #wp-calendar tfoot #prev, a {
+a, input[type=submit], #wp-calendar tfoot #next, #wp-calendar tfoot #prev {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   letter-spacing: 1px; }
 
@@ -195,6 +195,39 @@ input[type=submit], #wp-calendar tfoot #next, #wp-calendar tfoot #prev, a {
   .gridspan_12_span12_down {
     width: 100%;
     padding: 0 0.625em; } }
+body {
+  font-size: 100%;
+  font-family: Tahoma, Geneva, sans-serif;
+  line-height: 1.5;
+  background: white;
+  margin: 0; }
+
+p {
+  margin-bottom: 1.5em;
+  word-wrap: break-word; }
+
+a {
+  color: #e74c3c; }
+
+img {
+  max-width: 100%; }
+
+blockquote {
+  font-size: 1.1em;
+  font-style: italic;
+  margin-left: 1.5em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'latin_modern_roman_dunhil10Rg', Times, serif; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-family: 'latin_modern_roman_dunhil10Rg', Times, serif; }
+
+h5 {
+  font-size: 1.1em;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  margin: 0.5em 0 0; }
+
 .customize-support #header {
   margin-top: 3em; }
   @media screen and (min-width: 783px) {
@@ -809,36 +842,3 @@ textarea {
   -ms-transform: perspective(1000px) rotateX(0deg);
   -o-transform: perspective(1000px) rotateX(0deg);
   transform: perspective(1000px) rotateX(0deg); }
-
-body {
-  font-size: 100%;
-  font-family: Tahoma, Geneva, sans-serif;
-  line-height: 1.5;
-  background: white;
-  margin: 0; }
-
-p {
-  margin-bottom: 1.5em;
-  word-wrap: break-word; }
-
-a {
-  color: #e74c3c; }
-
-img {
-  max-width: 100%; }
-
-blockquote {
-  font-size: 1.1em;
-  font-style: italic;
-  margin-left: 1.5em; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'latin_modern_roman_dunhil10Rg', Times, serif; }
-  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-family: 'latin_modern_roman_dunhil10Rg', Times, serif; }
-
-h5 {
-  font-size: 1.1em;
-  font-variant: small-caps;
-  letter-spacing: 1px;
-  margin: 0.5em 0 0; }

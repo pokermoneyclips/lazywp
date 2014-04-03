@@ -1,0 +1,44 @@
+﻿body {
+	font-size: $font+0%;
+	font-family:  Tahoma, Geneva, sans-serif;
+	line-height: 1.5;
+	background: $lightest;
+	margin: 0;
+}
+
+p {
+	margin-bottom: $font_em * 1.5 +0em;
+	word-wrap: break-word;
+}
+
+a {
+	color: $colorpop;
+	@extend %linktext;
+}
+
+img {
+	max-width: 100%;
+}
+
+blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+	margin-left: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	//font-family: 'permanent_markerregular', Times, serif;
+	font-family: 'latin_modern_roman_dunhil10Rg', Times, serif;
+	
+		a {
+			//font-family: 'permanent_markerregular', Times, serif;
+			font-family: 'latin_modern_roman_dunhil10Rg', Times, serif;		
+		}
+}
+
+h5 {
+	font-size: 1.1em;
+	font-variant: small-caps;
+	letter-spacing: 1px;
+	margin: 0.5em 0 0;
+}

@@ -17,6 +17,7 @@ $slidecat = get_option('lazy_grid_header_slider_cat');
 $fronttype = get_option('lazy_grid_recent_type');
 $frontrecent = get_option('lazy_grid_recent_posts');
 $frontad = get_option('lazy_grid_show_ad');
+$frontshowpage = get_option('lazy_grid_recent_pages');
 
 // More Image Sizes
 $teaseimage = get_option('lazy_grid_tease_image');

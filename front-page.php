@@ -73,6 +73,7 @@ if ($slidetype == 'slider') : ?>
 	<?php } // close if post statement
 	elseif ($fronttype == "page") {
 		$recentargs[post__not_in] = array($post->ID); // dont show the current page
+		$recentargs[post__in] = $frontshowpage; // show desired pages
 	}
 	elseif ($fronttype == "attachment") {
 		$recentargs[post_status] = inherit;

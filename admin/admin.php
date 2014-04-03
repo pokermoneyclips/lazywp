@@ -28,6 +28,7 @@ function lazy_grid_register_settings() {
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_short_image');
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_post_image');
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_show_ad');
+	register_setting( 'lazygrid-settings-group', 'lazy_grid_recent_pages');
 }
 
 function lazy_grid_settings_page() {
