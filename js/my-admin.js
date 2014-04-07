@@ -56,12 +56,19 @@ $("#lazy_grid_header").change(function(){
 $("#lazy_grid_recent_type").change(function(){   
 	var catValue = $("#lazy_grid_recent_type option:selected").val();
 	var catTable = $(".front-post-category");
+	var pageTable = $(".front-page-category");
 	
     if(catValue === "post") {
 		catTable.removeClass("hide-single-image-options").addClass("show-single-image-options");
 	}
 	if(catValue !== "post") {
 		catTable.removeClass("show-single-image-options").addClass("hide-single-image-options");	
+	}	
+	if(catValue === "page") {
+		pageTable.removeClass("hide-single-image-options").addClass("show-single-image-options");
+	}
+	if(catValue !== "page") {
+		pageTable.removeClass("show-single-image-options").addClass("hide-single-image-options");	
 	}	
 });
  
