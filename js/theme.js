@@ -5,18 +5,13 @@ function adjustStyle(width) {
     width = parseInt(width);
 	var pathname = window.location.pathname;
     if (width < 720) {
-		//if ($(".framed").length > 0) { /* Checks if element exists */
-		//	$(".framed").remove();
-		//	$(".insert").append('<a class="framelink" href="' + frameSrc + '" target="_blank">' + frameSrc + '</a>');
-		//}
+		
 	} /* Close initial if statement*/ 
 	
 	else {
-		//if ($(".framed").length == 0) { /* Checks if element doesn't exist */
-		//	$(".insert").append('<iframe class="framed" src="' + frameSrc  + '">');
-		//	$(".framelink").remove();
-		}
+	
 	}
+}
 				
 $(function() {
 		adjustStyle($(this).width());

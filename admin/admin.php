@@ -16,8 +16,8 @@ add_action('admin_menu', 'lazy_grid_settings_create_menu');
 function lazy_grid_register_settings() {
 	//register our settings
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_header');
-	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_image');
-	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_text');
+	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_image', 'lazy_grid_image_sanitizer');
+	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_text', 'lazy_grid_text_sanitizer');
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_text_pos');
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_slider_image');
 	register_setting( 'lazygrid-settings-group', 'lazy_grid_header_slider_cat');
@@ -51,6 +51,25 @@ function lazy_grid_admin_scripts() {
         wp_enqueue_script('my-admin-js');
 		wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/css/my-admin.css' );
 }
+
+
+// Text Input HTML Remover
+function lazy_grid_text_sanitizer($input) {
+	$input = wp_filter_nohtml_kses($input); 
+	return $input;
+}
+
+// Make sure the Image is an image 
+function lazy_grid_image_sanitizer($input) {
+	$doc_type = strrchr($input, '.');
+	
+	$allowed_doc_types = array ('.jpg', '.gif', '.png' , '.svg'); // These are the doc types were allowing
+	
+	if (in_array($doc_type, $allowed_doc_types)) {
+		return $input;
+	}	
+}
+
 
 
 // Sanitize and validate input. Accepts an array, return a sanitized array.
